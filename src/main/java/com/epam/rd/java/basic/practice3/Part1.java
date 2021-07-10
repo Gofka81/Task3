@@ -30,12 +30,14 @@ public class Part1 {
 
     public static String convert2(String input) {
         StringBuilder sb = new StringBuilder();
-        Pattern p = Pattern.compile("(?m)^(\\S*);(\\S* .\\S*);([a-z]*@([a-z]*.com))");
+        Pattern p = Pattern.compile("(?m)^(\\S*);(\\S*) (\\S*);([a-z]*@([a-z]*.com))");
         Matcher m = p.matcher(input);
         while (m.find()) {
-            sb.append(m.group(2))
+            sb.append(m.group(3))
+                    .append(" ")
+                    .append(m.group(2))
                     .append(" (email: ")
-                    .append(m.group(3))
+                    .append(m.group(4))
                     .append(")")
                     .append(System.lineSeparator());
         }
@@ -46,7 +48,7 @@ public class Part1 {
         final String arrow = " ==> ";
         StringBuilder sb = new StringBuilder();
         String[][] domainArr = new String[2][10];
-        Pattern p = Pattern.compile("(?m)^(\\S*);(\\S* .\\S*);([a-z]*@([a-z]*.com))");
+        Pattern p = Pattern.compile("(?m)^(\\S*);(\\S* \\S*);([a-z]*@([a-z]*.com))");
         Matcher m = p.matcher(input);
         int i =0;
         while (m.find()){
@@ -71,7 +73,7 @@ public class Part1 {
 
     public static String convert4(String input) {
         StringBuilder sb = new StringBuilder();
-        Pattern p = Pattern.compile("(?m)^(\\S*);(\\S* .\\S*);([a-z]*@([a-z]*.com))");
+        Pattern p = Pattern.compile("(?m)^(\\S*);(\\S* \\S*);([a-z]*@([a-z]*.com))");
         Random random = new Random();
         Matcher m = p.matcher(input);
         sb.append("Login;Name;Email;Password")
