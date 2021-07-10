@@ -25,7 +25,7 @@ public class Part1 {
                     .append(m.group(3))
                     .append(System.lineSeparator());
         }
-        return sb.toString().trim();
+        return sb.toString();
     }
 
     public static String convert2(String input) {
