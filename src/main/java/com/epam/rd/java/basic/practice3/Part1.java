@@ -5,6 +5,8 @@ import java.util.regex.*;
 
 public class Part1 {
 
+    public static final String REGEXKEY= "(?m)^(\\S*);(\\S*) (\\S*);([\\S]*@([\\S]*.com))";
+
     public static void main(String[] args) {
         System.out.println(convert1(Util.getInput("part1.txt")));
         System.out.println();
@@ -17,7 +19,7 @@ public class Part1 {
 
     public static String convert1(String input) {
         StringBuilder sb = new StringBuilder();
-        Pattern p = Pattern.compile("(?m)^(\\S*);(\\S*) (\\S*);([\\S]*@([\\S]*.com))");
+        Pattern p = Pattern.compile(REGEXKEY);
         Matcher m = p.matcher(input);
         while (m.find()) {
             sb.append(m.group(1))
@@ -30,7 +32,7 @@ public class Part1 {
 
     public static String convert2(String input) {
         StringBuilder sb = new StringBuilder();
-        Pattern p = Pattern.compile("(?m)^(\\S*);(\\S*) (\\S*);([\\S]*@([\\S]*.com))");
+        Pattern p = Pattern.compile(REGEXKEY);
         Matcher m = p.matcher(input);
         while (m.find()) {
             sb.append(m.group(3))
@@ -47,7 +49,7 @@ public class Part1 {
     public static String convert3(String input) {
         StringBuilder sb = new StringBuilder();
         String[][] domainArr = new String[2][10];
-        Pattern p = Pattern.compile("(?m)^(\\S*);(\\S*) (\\S*);([\\S]*@([\\S]*.com))");
+        Pattern p = Pattern.compile(REGEXKEY);
         Matcher m = p.matcher(input);
         int size =0;
         while (m.find()){
@@ -88,7 +90,7 @@ public class Part1 {
 
     public static String convert4(String input) {
         StringBuilder sb = new StringBuilder();
-        Pattern p = Pattern.compile("(?m)^(\\S*);(\\S*) (\\S*);([\\S]*@([\\S]*.com))");
+        Pattern p = Pattern.compile(REGEXKEY);
         Random random = new Random();
         Matcher m = p.matcher(input);
         sb.append("Login;Name;Email;Password")
