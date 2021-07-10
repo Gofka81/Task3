@@ -24,8 +24,10 @@ public class Part1 {
             while (m.find()){
                 sb.append(m.group(1))
                         .append(": ")
-                        .append(m.group(2))
-                        .append(System.lineSeparator());
+                        .append(m.group(2));
+                if(!s.equals(sentence[sentence.length-1])){
+                    sb.append(System.lineSeparator());
+                }
             }
         }
         return sb.toString().trim();
