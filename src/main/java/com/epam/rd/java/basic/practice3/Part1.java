@@ -25,7 +25,7 @@ public class Part1 {
                 sb.append(m.group(1))
                         .append(": ")
                         .append(m.group(2))
-                        .append("\n");
+                        .append(System.lineSeparator());
             }
         }
         return sb.toString().trim();
