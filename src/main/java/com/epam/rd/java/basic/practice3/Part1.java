@@ -62,6 +62,6 @@ public class Part1 {
     }
 
     public static String[] splitToSentence(String string){
-        return string.split("\r\n");
+        return string.split(System.lineSeparator());
     }
 }
