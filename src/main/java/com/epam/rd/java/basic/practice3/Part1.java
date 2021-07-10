@@ -17,7 +17,7 @@ public class Part1 {
 
     public static String convert1(String input) {
         StringBuilder sb = new StringBuilder();
-        Pattern p = Pattern.compile("(?m)^(\\S*);(\\S* .\\S*);([a-z]*@([a-z]*.com))");
+        Pattern p = Pattern.compile("(?m)^(\\S+);([a-zA-zа-яА-Я]+ [a-zA-zа-яА-Я]+);(.+)$");
         Matcher m = p.matcher(input);
         while (m.find()) {
             sb.append(m.group(1))
