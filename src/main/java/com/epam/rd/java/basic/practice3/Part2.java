@@ -23,15 +23,19 @@ public class Part2 {
             if(m.group(0).length() <= min){
                 min = m.group(0).length();
                 if(m.group(0).length() == min){
-                    arr[0][sizeMin] = m.group(0);
-                    sizeMin++;
+                    if(isUnique(arr[0],m.group(0))) {
+                        arr[0][sizeMin] = m.group(0);
+                        sizeMin++;
+                    }
                 }
             }
             if(m.group(0).length() >= max){
                 max = m.group(0).length();
                 if(m.group(0).length() == max){
-                    arr[1][sizeMax] = m.group(0);
-                    sizeMax++;
+                    if(isUnique(arr[1], m.group(0))){
+                        arr[1][sizeMax] = m.group(0);
+                        sizeMax++;
+                    }
                 }
             }
         }
@@ -53,5 +57,14 @@ public class Part2 {
         }
         sb.setLength(sb.length()-2);
         return sb.toString();
+    }
+
+    public static boolean isUnique(String[] arr, String string){
+        for(String s : arr){
+            if(s.equals(string)){
+                return false;
+            }
+        }
+        return true;
     }
 }

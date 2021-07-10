@@ -6,15 +6,16 @@ import java.util.regex.*;
 public class Part1 {
 
     public static final String REGEXKEY= "(?m)^(\\S*);(\\S*) (\\S*);([\\S]*@([\\S]*.com))";
+    public static final String PATHKEY = "part1.txt";
 
     public static void main(String[] args) {
-        System.out.println(convert1(Util.getInput("part1.txt")));
+        System.out.println(convert1(Util.getInput(PATHKEY)));
         System.out.println();
-        System.out.println(convert2(Util.getInput("part1.txt")));
+        System.out.println(convert2(Util.getInput(PATHKEY)));
         System.out.println();
-        System.out.println(convert3(Util.getInput("part1.txt")));
+        System.out.println(convert3(Util.getInput(PATHKEY)));
         System.out.println();
-        System.out.println(convert4(Util.getInput("part1.txt")));
+        System.out.println(convert4(Util.getInput(PATHKEY)));
     }
 
     public static String convert1(String input) {
