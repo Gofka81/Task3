@@ -12,18 +12,20 @@ public class Part1 {
     public static final String ENCODING = "UTF-8";
 
     public static void main(String[] args) {
-        String string = getData();
-        System.out.println(convert1(string));
+        System.out.println(convert1(Util.getInput("part1.txt")));
     }
 
     public static String convert1(String input) {
         String[] sentence = splitToSentence(input);
         StringBuilder sb = new StringBuilder();
-        Pattern p = Pattern.compile("(\\S*);.*;([a-z]*@[a-z]*.com)");
+        Pattern p = Pattern.compile("^(\\S*);.*;([a-z]*@[a-z]*.com)");
         for(String s: sentence) {
             Matcher m = p.matcher(s);
             while (m.find()){
-                sb.append(m.group(1)).append(": ").append(m.group(2)).append("\r\n");
+                sb.append(m.group(1))
+                        .append(": ")
+                        .append(m.group(2))
+                        .append("\n");
             }
         }
         return sb.toString().trim();

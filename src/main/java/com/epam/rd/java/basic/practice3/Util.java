@@ -8,7 +8,7 @@ public class Util {
     public static String getInput(String fileName) {
         StringBuilder sb = new StringBuilder();
         try {
-            Scanner scanner = new Scanner(new File(fileName), "cp1251");
+            Scanner scanner = new Scanner(new File(fileName), "UTF-8");
             while (scanner.hasNextLine()) {
                 sb.append(scanner.nextLine()).append(System.lineSeparator());
             }
