@@ -9,6 +9,10 @@ public class Part4 {
 
     public static void main(String[] args) throws NoSuchAlgorithmException {
         System.out.println(hash("password", "MD5"));
+
+        System.out.println(hash("password", "SHA-256"));
+
+        System.out.println(hash("passwort", "SHA-256"));
     }
 
     public static String hash(String input, String algorithm) throws NoSuchAlgorithmException {
@@ -32,10 +36,12 @@ public class Part4 {
         Pattern p = Pattern.compile("([0-1]{0,4})");
         Matcher m = p.matcher(binary);
         while (m.find()){
+            if(m.group(1).equals("")){
+                break;
+            }
             int decimal = Integer.parseInt(m.group(1),2);
            sb.append(Integer.toString(decimal,16).toUpperCase());
         }
-        System.out.println(sb);
         return sb.toString();
     }
 }
