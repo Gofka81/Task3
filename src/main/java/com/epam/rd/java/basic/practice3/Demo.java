@@ -9,6 +9,7 @@ public class Demo {
         Part2.main(new String[]{"why","how","4","1"});
         Part3.main(new String[]{"why","how","4","1"});
         Part4.main(new String[]{"why","how","4","1"});
+        Part5.main(new String[]{"why","how","4","1"});
     }
 
 }

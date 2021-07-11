@@ -1,18 +1,13 @@
 package com.epam.rd.java.basic.practice3;
 
 import java.security.*;
-import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Part4 {
 
     public static void main(String[] args) throws NoSuchAlgorithmException {
-        System.out.println(hash("password", "MD5"));
-
-        System.out.println(hash("password", "SHA-256"));
-
-        System.out.println(hash("passwort", "SHA-256"));
+       //just main
     }
 
     public static String hash(String input, String algorithm) throws NoSuchAlgorithmException {
