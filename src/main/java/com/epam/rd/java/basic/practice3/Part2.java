@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 
 public class Part2 {
 
-    public static int[] size = new int[2];
+    private static final int[] size = new int[2];
 
     public static void main(String[] args) {
         System.out.println(convert(Util.getInput("part2.txt")));
@@ -72,17 +72,11 @@ public class Part2 {
     }
 
     public static boolean isUnique(String[] arr, String string,int size){
-        try {
             for (int i=0; i< size; i++) {
                 if (arr[i].equals(string)) {
                     return false;
                 }
             }
             return true;
-        }
-        catch (NullPointerException exception) {
-            exception.printStackTrace();
-            return false;
-        }
     }
 }
