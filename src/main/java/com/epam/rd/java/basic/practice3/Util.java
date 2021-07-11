@@ -9,7 +9,6 @@ public class Util {
         StringBuilder sb = new StringBuilder();
         try {
             Scanner scanner = new Scanner(new File(fileName), "UTF-8");
-            scanner.nextLine();
             while (scanner.hasNextLine()) {
                 sb.append(scanner.nextLine()).append(System.lineSeparator());
             }
