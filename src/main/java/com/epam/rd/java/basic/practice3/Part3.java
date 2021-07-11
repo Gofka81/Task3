@@ -12,7 +12,7 @@ public class Part3 {
 
     public static String convert(String input) {
         StringBuilder sb = new StringBuilder();
-        Pattern p = Pattern.compile("([A-Z])([a-z]{2,})|([a-z])([a-z]{2,})|(\\s)+|(\\S){0,2}");
+        Pattern p = Pattern.compile("([A-ZА-Я])([a-zа-я]{3,})|([a-zа-я])([a-zа-я]{2,})|(\\s)+|([A-ZА-Яa-zа-я]+){0,2}");
         Matcher m = p.matcher(input);
         while (m.find()){
             if(m.group(1)!= null){
