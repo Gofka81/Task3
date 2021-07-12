@@ -13,7 +13,7 @@ public class Part6 {
         String[] buffer = new String[50];
         String[] copy = new String[50];
         StringBuilder sb = new StringBuilder();
-        Pattern p = Pattern.compile("([A-z\\u0410-\\u044f]*)(\\s)+");
+        Pattern p = Pattern.compile("([\\S]*)(\\s)*");
         Matcher m = p.matcher(input);
         int size =0;
         int copySize =0;
@@ -23,14 +23,15 @@ public class Part6 {
                 size++;
                 continue;
             }
-
-            if(isUnique(m.group(1), buffer, size)){
+            if(isUnique(m.group(1), buffer, size)&& m.group(1)!=null){
                 buffer[size] = m.group(1);
                 size++;
             }
             else {
-                copy[copySize] = m.group(1);
-                copySize++;
+                if (m.group(1)!=null) {
+                    copy[copySize] = m.group(1);
+                    copySize++;
+                }
             }
         }
         m = p.matcher(input);
@@ -43,6 +44,9 @@ public class Part6 {
                     sb.append("_")
                             .append(m.group(1));
                 }
+            }
+            if(m.group(2) == null){
+                continue;
             }
             if(!m.group(2).equals("")){
                 sb.append(m.group(2));
