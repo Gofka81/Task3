@@ -1,8 +1,8 @@
 package com.epam.rd.java.basic.practice3;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
+        import java.io.File;
+        import java.io.IOException;
+        import java.util.Scanner;
 
 public class Util {
     public static String getInput(String fileName) {
@@ -14,7 +14,7 @@ public class Util {
             }
             scanner.close();
             return sb.toString().trim();
-        } catch (FileNotFoundException ex) {
+        } catch (IOException ex) {
             ex.printStackTrace();
         }
         return sb.toString();

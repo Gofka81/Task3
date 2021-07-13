@@ -35,10 +35,7 @@ public class Part5 {
                 if(number.getValue()> 10){
                     index = ROMAN.X;
                 }
-                if (dec >= number.getValue()) {
-                    temp = number;
-                }
-                else {
+                if (dec < number.getValue()) {
                     if (number.getValue() - index.getValue() == (dec / 10) * 10 || number.getValue() - index.getValue() == dec % 10) {
                         sb.append(index)
                                 .append(number);
@@ -51,6 +48,7 @@ public class Part5 {
                     }
                     break;
                 }
+                temp = number;
             }
             index = ROMAN.I;
         }
