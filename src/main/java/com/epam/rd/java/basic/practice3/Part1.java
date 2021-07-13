@@ -1,5 +1,7 @@
 package com.epam.rd.java.basic.practice3;
 
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import java.util.Random;
 import java.util.regex.*;
 
@@ -8,7 +10,7 @@ public class Part1 {
     public static final String REGEXKEY= "(?m)^(\\S*);(\\S*) (\\S*);([\\S]*@([\\S]*.com))";
     public static final String PATHKEY = "part1.txt";
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws NoSuchAlgorithmException {
         System.out.println(convert1(Util.getInput(PATHKEY)));
         System.out.println();
         System.out.println(convert2(Util.getInput(PATHKEY)));
@@ -89,10 +91,10 @@ public class Part1 {
         return sb.toString();
     }
 
-    public static String convert4(String input) {
+    public static String convert4(String input) throws NoSuchAlgorithmException {
         StringBuilder sb = new StringBuilder();
         Pattern p = Pattern.compile(REGEXKEY);
-        Random random = new Random();
+        Random random = SecureRandom.getInstanceStrong();
         Matcher m = p.matcher(input);
         sb.append("Login;Name;Email;Password")
                 .append(System.lineSeparator());

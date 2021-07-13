@@ -5,6 +5,9 @@ import java.util.regex.Pattern;
 
 public class Part6 {
 
+    private static Matcher m;
+    private static StringBuilder sb;
+
     public static void main(String[] args) {
         System.out.println(convert(Util.getInput("part6.txt")));
     }
@@ -12,9 +15,9 @@ public class Part6 {
     public static String convert(String input) {
         String[] buffer = new String[50];
         String[] copy = new String[50];
-        StringBuilder sb = new StringBuilder();
+        sb = new StringBuilder();
         Pattern p = Pattern.compile("([\\S]*)(\\s)*");
-        Matcher m = p.matcher(input);
+        m = p.matcher(input);
         int size =0;
         int copySize =0;
         while (m.find()){
@@ -35,6 +38,23 @@ public class Part6 {
             }
         }
         m = p.matcher(input);
+
+        return createString(copy,copySize);
+    }
+
+    public static boolean isUnique(String group,String[] buffer, int size) {
+        boolean isUnique = true;
+        for(int i=0; i< size; i++){
+            if(buffer[i].equals(group)){
+                isUnique = false;
+                break;
+            }
+        }
+        return isUnique;
+    }
+
+    public static String createString(String[] copy, int copySize){
+
         while (m.find()){
             if(!m.group(1).equals("")){
                 if(isUnique(m.group(1),copy,copySize)) {
@@ -54,16 +74,4 @@ public class Part6 {
         }
         return sb.toString();
     }
-
-    private static boolean isUnique(String group,String[] buffer, int size) {
-        boolean isUnique = true;
-        for(int i=0; i< size; i++){
-            if(buffer[i].equals(group)){
-                isUnique = false;
-                break;
-            }
-        }
-        return isUnique;
-    }
-
 }

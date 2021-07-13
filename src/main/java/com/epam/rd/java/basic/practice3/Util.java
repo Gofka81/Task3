@@ -1,7 +1,7 @@
 package com.epam.rd.java.basic.practice3;
 
 import java.io.File;
-import java.io.IOException;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Util {
@@ -14,7 +14,7 @@ public class Util {
             }
             scanner.close();
             return sb.toString().trim();
-        } catch (IOException ex) {
+        } catch (FileNotFoundException ex) {
             ex.printStackTrace();
         }
         return sb.toString();

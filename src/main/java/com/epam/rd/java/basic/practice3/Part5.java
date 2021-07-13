@@ -37,19 +37,20 @@ public class Part5 {
                 }
                 if (dec >= number.getValue()) {
                     temp = number;
-                    continue;
                 }
+                else {
+                    if (number.getValue() - index.getValue() == (dec / 10) * 10 || number.getValue() - index.getValue() == dec % 10) {
+                        sb.append(index)
+                                .append(number);
+                        dec -= number.getValue() - index.getValue();
 
-                if(number.getValue() - index.getValue() == (dec/10)*10 || number.getValue() - index.getValue() == dec%10){
-                    sb.append(index)
-                            .append(number);
-                    dec -= number.getValue() - index.getValue();
+                    }
+                    else {
+                        dec -= temp.getValue();
+                        sb.append(temp);
+                    }
                     break;
                 }
-
-                dec -= temp.getValue();
-                sb.append(temp);
-                break;
             }
             index = ROMAN.I;
         }
