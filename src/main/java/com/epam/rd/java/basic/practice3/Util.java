@@ -1,7 +1,5 @@
 package com.epam.rd.java.basic.practice3;
 
-        import jdk.internal.logger.BootstrapLogger;
-
         import java.io.File;
         import java.io.IOException;
         import java.util.Scanner;
