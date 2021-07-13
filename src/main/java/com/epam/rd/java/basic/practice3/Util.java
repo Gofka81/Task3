@@ -1,10 +1,14 @@
 package com.epam.rd.java.basic.practice3;
 
+        import jdk.internal.logger.BootstrapLogger;
+
         import java.io.File;
         import java.io.IOException;
         import java.util.Scanner;
 
 public class Util {
+    private static BootstrapLogger logger;
+
     public static String getInput(String fileName) {
         StringBuilder sb = new StringBuilder();
         try {
@@ -15,7 +19,7 @@ public class Util {
             scanner.close();
             return sb.toString().trim();
         } catch (IOException ex) {
-            ex.printStackTrace();
+            logger.log(ex);
         }
         return sb.toString();
     }
